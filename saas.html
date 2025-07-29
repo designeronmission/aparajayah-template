@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparajayah Services - Integration as a Service</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 1600px;
+            margin: 0 auto;
+        }
+
+        .video-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .badge-clutch {
+            background: linear-gradient(90deg, #e94f1d, #f58220);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-primary-custom {
+            background-color: #2563eb;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .partner-logo {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .video-hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .section-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .btn-outline-custom {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .partner-logos {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Video Hero Section -->
+    <section class="video-hero">
+        <!-- Video Background -->
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="assets/images/saass.mp4" type="video/mp4">
+            <!-- Fallback image if video doesn't load -->
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Background">
+        </video>
+
+        <!-- Dark overlay -->
+        <div class="video-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="container">
+            <div class="hero-content">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <!-- Clutch Badge -->
+                        <div class="badge-clutch">
+                            <i class="fas fa-award"></i>
+                            <span>IaaS</span>
+                        </div>
+                        
+                        <!-- Main Heading -->
+                        <h1 class="section-title">Software as a Service</h1>
+                        <h2 class="section-subtitle">Automate, Connect, and Scale with Next-Gen IaaS Solutions</h2>
+
+                        <!-- Description -->
+                        <p class="section-description">
+                            Automated, secure, scalable API and system integrations — from legacy ERP to real-time event
+                            streams.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="d-flex flex-wrap">
+                            <a href="#contact" class="btn btn-primary-custom me-3">
+                                Book a Quick Call
+                            </a>
+                            <a href="#quote" class="btn btn-outline-custom">
+                                Get Quote
+                            </a>
+                        </div>
+
+                        <!-- Partner Logos 
+                        <div class="partner-logos">
+                            <img src="assets/images/logo/razorpay-icon.webp" alt="Freshworks" class="partner-logo" style="height: 100px;">
+                            <img src="https://massagebird.com/wp-content/uploads/2022/04/logo-white.png" alt="MassageBird" class="partner-logo">
+                        </div>-->
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <section class="feature-area-1 position-relative z-index-common mt-4">
+        <div class="container">
+            <div class="row gy-30">
+                <div class="col-lg-4 d-flex" data-cue="slideInUp">
+                    <div class="feature-card">
+                        <div class="box-icon"><img src="assets/images/icon/feature-icon1-1.svg" alt="icon"></div>
+                        <h3 class="box-title">API Integration</h3>
+                        <p class="box-text">Seamlessly connect applications with our robust API management platform, supporting REST, SOAP, GraphQL and more.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex" data-cue="slideInUp">
+                    <div class="feature-card">
+                        <div class="box-icon"><img src="assets/images/icon/feature-icon1-2.svg" alt="icon"></div>
+                        <h3 class="box-title">ERP Integration</h3>
+                        <p class="box-text">Bridge your legacy ERP systems with modern cloud applications without costly upgrades or replacements.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex" data-cue="slideInUp">
+                    <div class="feature-card">
+                        <div class="box-icon"><img src="assets/images/icon/feature-icon1-3.svg" alt="icon"></div>
+                        <h3 class="box-title">Cloud Integration</h3>
+                        <p class="box-text">Connect SaaS applications across hybrid environments with our pre-built connectors and integration templates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-sec2 position-relative overflow-hidden space" id="about-sec">
+        <div class="shape-mockup bg-gradient-shape1" data-bottom="0" data-right="0" data-left="auto" data-top="auto">
+        </div>
+        <div class="container">
+            <div class="row gy-40">
+                <div class="col-xl-6">
+                    <div class="img-box2" data-cue="slideInLeft">
+                        <div class="img1">
+                            <div class="img-box2-shape1"></div><img src="assets/images/about/about.jpg" alt="About">
+                        </div>
+                        <div class="about-experience-wrap jump">
+                            <div class="box-icon"><img src="assets/images/icon/about-icon2-1.svg" alt="icon"></div>
+                            <div class="about-counter-wrap">500+ Successful Integrations</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="about-wrap2">
+                        <div class="title-area mb-25"><span class="sub-title style2" data-cue="slideInUp">SaaS</span>
+                            <h2 class="sec-title" data-cue="slideInUp" data-delay="100">What is SaaS?</h2>
+                            <p class="sec-text" data-cue="slideInUp" data-delay="200">Software as a Service (SaaS) delivers software applications over the internet, removing the need for complex installations, updates, and infrastructure. Our SaaS platform is cloud-native, secure, and built to empower teams with tools they can access anytime, anywhere.</p>
+                        </div>
+                        <div class="check-list style-grid" data-cue="slideInUp">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Fast Deployment</li>
+                                <li><i class="fas fa-check-circle"></i> Automatic Updates</li>
+                                <li><i class="fas fa-check-circle"></i> Lower Total Cost of Ownership</li>
+                                <li><i class="fas fa-check-circle"></i> Scalability</li>
+                                <li><i class="fas fa-check-circle"></i> Anywhere Access</li>
+                                <li><i class="fas fa-check-circle"></i> Subscription-Based Model</li>
+                            </ul>
+                        </div>
+                        <div class="btn-wrap mt-35" data-cue="slideInUp"><a href="about.html" class="ot-btn">Explore Our Platform<i class="far fa-long-arrow-right ms-2"></i></a>
+                            <div class="about-profile">
+                                <div class="avater"><img src="assets/images/normal/about-profile1-1.png" alt="avater">
+                                </div>
+                                <div class="media-body">
+                                    <h5 class="about-profile-name">John</h5>
+                                    <p class="desig">Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Add intersection observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simple fade-in animation for elements
+            const fadeInElements = document.querySelectorAll('.hero-content > *');
+
+            fadeInElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100);
+            });
+
+            // Ensure video plays on mobile
+            const video = document.querySelector('.video-background');
+            video.play().catch(error => {
+                // Fallback for browsers that don't allow autoplay
+                video.muted = true;
+                video.play();
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
